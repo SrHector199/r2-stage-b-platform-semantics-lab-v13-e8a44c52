@@ -1,0 +1,15 @@
+name: R2 Lab id-observation
+on:
+  pull_request:
+    branches:
+      - 'lab/id-observation'
+    types: [opened, synchronize, reopened]
+permissions: {}
+jobs:
+  emit:
+    name: r2-lab-pin-v12
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Emit fixed lab job check
+        run: 'true'
