@@ -1,0 +1,15 @@
+name: R2 Lab collision-check-coexist-r2
+on:
+  pull_request:
+    branches:
+      - 'lab/collision-check-coexist-r2'
+    types: [opened, synchronize, reopened]
+permissions: {}
+jobs:
+  emit:
+    name: r2-lab-collision-v12
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Emit fixed lab job check
+        run: 'true'
