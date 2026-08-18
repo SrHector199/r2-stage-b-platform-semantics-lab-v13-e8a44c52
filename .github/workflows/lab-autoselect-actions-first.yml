@@ -1,0 +1,12 @@
+name: R2 Lab Autoselect Actions First
+on:
+  workflow_dispatch:
+permissions: {}
+jobs:
+  emit:
+    name: r2-lab-autoselect-actions-first-v12
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    steps:
+      - name: Emit fixed lab dispatch check
+        run: 'true'
