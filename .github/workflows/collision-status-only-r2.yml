@@ -1,0 +1,23 @@
+name: R2 Lab collision-status-only-r2
+on:
+  pull_request:
+    branches:
+      - 'lab/collision-status-only-r2'
+    types: [opened, synchronize, reopened]
+permissions:
+  contents: read
+  statuses: write
+jobs:
+  emit_status:
+    name: r2-lab-status-emitter-internal
+    runs-on: ubuntu-latest
+    timeout-minutes: 2
+    env:
+      GH_TOKEN: ${{ github.token }}
+    steps:
+      - name: Emit exact lab commit status
+        run: |
+          gh api --method POST "/repos/${GITHUB_REPOSITORY}/statuses/${GITHUB_SHA}" \
+            -f state='success' \
+            -f context='r2-lab-collision-v12' \
+            -f description='R2 disposable lab status'
